@@ -1,18 +1,15 @@
 'use strict';
 
 /**
- *
+ * calculates how many years from now (or how many years ago) 
+ * the father was or will be twice as old as the son.
+ * 
  * @param {number} fatherAge
  * @param {number} sonAge
  * @returns {number}
  */
-
 function getYearsToDoubleAge(fatherAge, sonAge) {
-    if (
-        fatherAge < 0 || 
-        sonAge < 0 || 
-        fatherAge - sonAge < 15
-    ) {
+    if (fatherAge < 0 || sonAge < 0 || fatherAge - sonAge < 15) {
         return NaN;
     }
 
@@ -21,23 +18,35 @@ function getYearsToDoubleAge(fatherAge, sonAge) {
     return years;
 }
 
-function getYearWord (num) {
+/**
+ * returns correct word form for year.
+ * 
+ * @param {number} num
+ * @returns {string}
+ */
+function getYearWord(num) {
     const last = num % 10;
     const lastTwo = num % 100;
 
-    if(lastTwo >= 11 && lastTwo <= 14) { return 'років'; }
+    if (lastTwo >= 11 && lastTwo <= 14) return 'років'; 
 
-    if(last === 1) { return 'рік'; }
+    if (last === 1) return 'рік'; 
 
-    if(last >= 2 && last <= 4) { return 'роки'; }
+    if (last >= 2 && last <= 4) return 'роки';
 
     return 'років';
 }
 
+/**
+ * returns message describing when the father
+ * was or will be twice as old as the son.
+ * 
+ * @param {number} years
+ * @returns {string}
+ */
 function getMessage(years) {
-
-    if (!years){
-        return 'НЕкоректні дані!'
+    if (Number.isNaN(years)) {
+        return 'НЕкоректні дані!';
     }
 
     if (years > 0) {
@@ -51,8 +60,11 @@ function getMessage(years) {
     }
 }
 
+const fatherAge = 54;
+const sonAge = 10;
 
+console.log(`---> Вік батька: ${fatherAge}\n---> Вік сина: ${sonAge}`);
 
-const years = getYearsToDoubleAge(54, 10);
+const years = getYearsToDoubleAge(fatherAge, sonAge);
 
 console.log(getMessage(years));
