@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * calculates how many years from now (or how many years ago) 
+ * calculates how many years from now (or how many years ago)
  * the father was or will be twice as old as the son.
- * 
+ *
  * @param {number} fatherAge
  * @param {number} sonAge
  * @returns {number}
@@ -20,7 +20,7 @@ function getYearsToDoubleAge(fatherAge, sonAge) {
 
 /**
  * returns correct word form for year.
- * 
+ *
  * @param {number} num
  * @returns {string}
  */
@@ -28,9 +28,9 @@ function getYearWord(num) {
     const last = num % 10;
     const lastTwo = num % 100;
 
-    if (lastTwo >= 11 && lastTwo <= 14) return 'років'; 
+    if (lastTwo >= 11 && lastTwo <= 14) return 'років';
 
-    if (last === 1) return 'рік'; 
+    if (last === 1) return 'рік';
 
     if (last >= 2 && last <= 4) return 'роки';
 
@@ -40,7 +40,7 @@ function getYearWord(num) {
 /**
  * returns message describing when the father
  * was or will be twice as old as the son.
- * 
+ *
  * @param {number} years
  * @returns {string}
  */
@@ -55,9 +55,9 @@ function getMessage(years) {
         const absYears = Math.abs(years);
 
         return `Батько був удвічі старший за сина ${absYears} ${getYearWord(absYears)} тому`;
-    } else {
-        return `Зараз батько удвічі старший за сина`;
     }
+
+    return `Зараз батько удвічі старший за сина`;
 }
 
 const fatherAge = 54;
