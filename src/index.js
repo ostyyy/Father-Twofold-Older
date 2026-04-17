@@ -9,7 +9,7 @@
  * @returns {number}
  */
 function getYearsToDoubleAge(fatherAge, sonAge) {
-    if (fatherAge < 0 || sonAge < 0 || fatherAge - sonAge < 15) {
+    if (sonAge < 0 || fatherAge - sonAge <= 15) {
         return NaN;
     }
 
@@ -52,6 +52,7 @@ function getMessage(years) {
     if (years > 0) {
         return `Батько буде удвічі старший за сина через ${years} ${getYearWord(years)}`;
     } 
+    
     if (years < 0) {
         const absYears = Math.abs(years);
 
