@@ -51,7 +51,8 @@ function getMessage(years) {
 
     if (years > 0) {
         return `Батько буде удвічі старший за сина через ${years} ${getYearWord(years)}`;
-    } else if (years < 0) {
+    } 
+    if (years < 0) {
         const absYears = Math.abs(years);
 
         return `Батько був удвічі старший за сина ${absYears} ${getYearWord(absYears)} тому`;
